@@ -1,0 +1,14 @@
+pipeline {
+agent any
+tools{
+maven "maven3"
+}
+stages{
+stage('Build') {
+steps{
+git credentialsId: 'github credentials', url: 'https://github.com/mdsameullah/Spring-petclinic-project1'
+sh "mvn clean package"
+}
+}
+}
+}
